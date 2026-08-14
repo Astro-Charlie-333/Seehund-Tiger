@@ -3,500 +3,202 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Berlin — Stadt aus Licht und Schatten</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#141317;          /* Kinodunkel */
-    --ink-soft:#1d1c22;
-    --paper:#e9e6df;        /* Barytpapier */
-    --paper-soft:#dfdbd2;
-    --safelight:#c22f26;    /* Dunkelkammer-Rot */
-    --silver:#9aa0a8;       /* Silbergelatine */
-    --line-dark:#2c2b33;
-    --line-light:#c9c4b9;
-    --display:'Anton',sans-serif;
-    --body:'Source Serif 4',Georgia,serif;
-    --mono:'IBM Plex Mono',monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *,*::before,*::after{animation:none!important;transition:none!important}
-  }
-  body{
-    font-family:var(--body);
-    background:var(--ink);
-    color:var(--paper);
-    line-height:1.65;
-    font-size:1.05rem;
-  }
-  ::selection{background:var(--safelight);color:var(--paper)}
-  a{color:inherit}
-  a:focus-visible,button:focus-visible{outline:3px solid var(--safelight);outline-offset:3px}
-  img{max-width:100%}
-
-  .wrap{max-width:1060px;margin:0 auto;padding:0 24px}
-  .eyebrow{
-    font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;
-    text-transform:uppercase;color:var(--silver);
-  }
-  .dark .eyebrow{color:var(--silver)}
-  .light .eyebrow{color:#6f6a60}
-  h2{
-    font-family:var(--display);font-weight:400;
-    font-size:clamp(2rem,5vw,3.2rem);
-    letter-spacing:.02em;text-transform:uppercase;
-    line-height:1.05;margin:.4em 0 .5em;
-  }
-  section{padding:90px 0}
-  .light{background:var(--paper);color:var(--ink)}
-  .dark{background:var(--ink);color:var(--paper)}
-  .lead{max-width:640px;font-size:1.12rem}
-  .light .lead{color:#37342e}
-  .dark .lead{color:#cfccc4}
-  .accent{color:var(--safelight)}
-
-  /* ---------- HERO ---------- */
-  header{
-    min-height:92vh;display:flex;flex-direction:column;justify-content:center;
-    position:relative;overflow:hidden;
-    background:
-      radial-gradient(ellipse 80% 55% at 50% -10%, rgba(194,47,38,.16), transparent 60%),
-      var(--ink);
-  }
-  .hero-title{
-    font-family:var(--display);font-weight:400;text-transform:uppercase;
-    font-size:clamp(4.2rem,17vw,15rem);
-    line-height:.9;letter-spacing:.01em;
-    color:var(--paper);
-  }
-  .hero-sub{
-    display:flex;flex-wrap:wrap;gap:14px 28px;align-items:baseline;margin-top:26px;
-  }
-  .hero-sub .tag{font-family:var(--mono);font-size:.78rem;letter-spacing:.18em;color:var(--silver);text-transform:uppercase}
-  .hero-sub .tag b{color:var(--safelight);font-weight:500}
-  .hero-claim{
-    font-size:clamp(1.05rem,2.2vw,1.35rem);max-width:560px;margin-top:34px;color:#d8d5cd;
-    font-style:italic;
-  }
-  .scroll-hint{
-    position:absolute;bottom:26px;left:24px;
-    font-family:var(--mono);font-size:.7rem;letter-spacing:.25em;color:var(--silver);
-    text-transform:uppercase;
-  }
-
-  /* ---------- FILMSTREIFEN-TIMELINE (Signatur) ---------- */
-  .strip-outer{margin-top:44px}
-  .strip{
-    display:flex;gap:0;overflow-x:auto;
-    padding:34px 24px;
-    background:#0c0b0e;
-    border-top:14px solid transparent;border-bottom:14px solid transparent;
-    /* Perforation */
-    border-image: repeating-linear-gradient(90deg,
-      #0c0b0e 0 10px, var(--paper) 10px 22px, #0c0b0e 22px 34px) 14;
-    scroll-snap-type:x proximity;
-    scrollbar-color:var(--safelight) #0c0b0e;
-  }
-  .frame{
-    min-width:270px;max-width:270px;
-    scroll-snap-align:start;
-    border:1px solid var(--line-dark);
-    border-right:none;
-    background:var(--ink-soft);
-    padding:22px 20px 24px;
-    display:flex;flex-direction:column;gap:10px;
-    position:relative;
-  }
-  .frame:last-child{border-right:1px solid var(--line-dark)}
-  .frame .year{
-    font-family:var(--display);font-size:2.1rem;color:var(--paper);
-    letter-spacing:.02em;
-  }
-  .frame.marked .year{color:var(--safelight)}
-  .frame .f-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver)}
-  .frame p{font-size:.92rem;color:#c6c3bb;line-height:1.55}
-  .strip-caption{
-    font-family:var(--mono);font-size:.7rem;letter-spacing:.25em;color:var(--silver);
-    text-transform:uppercase;margin-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  }
-
-  /* ---------- ZWEI-SPALTEN-GESCHICHTEN ---------- */
-  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:36px}
-  @media(max-width:760px){.story-grid{grid-template-columns:1fr}}
-  .story{border-top:3px solid currentColor;padding-top:18px}
-  .light .story{border-color:var(--ink)}
-  .dark .story{border-color:var(--paper)}
-  .story h3{
-    font-family:var(--display);font-weight:400;text-transform:uppercase;
-    font-size:1.35rem;letter-spacing:.03em;margin-bottom:8px;
-  }
-  .story .meta{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;display:block}
-  .light .story .meta{color:#8a1f19}
-  .dark .story .meta{color:var(--safelight)}
-  .story p{font-size:.98rem}
-  .light .story p{color:#37342e}
-  .dark .story p{color:#cfccc4}
-  .story p + p{margin-top:10px}
-
-  /* ---------- FAKTEN-KARTEN ---------- */
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;margin-top:36px}
-  .card{
-    background:var(--ink);color:var(--paper);
-    border:none;text-align:left;cursor:pointer;
-    padding:24px 22px;min-height:190px;
-    display:flex;flex-direction:column;justify-content:space-between;gap:14px;
-    font-family:var(--body);font-size:1rem;
-    transition:transform .18s ease, box-shadow .18s ease;
-  }
-  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.25)}
-  .card .q{font-family:var(--display);font-size:1.25rem;text-transform:uppercase;letter-spacing:.03em;line-height:1.2}
-  .card .hint{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver)}
-  .card .a{display:none;color:#d8d5cd;font-size:.95rem;line-height:1.55}
-  .card.open{background:#241f1f;outline:1px solid var(--safelight)}
-  .card.open .a{display:block}
-  .card.open .hint{color:var(--safelight)}
-
-  /* ---------- QUIZ ---------- */
-  .quiz{margin-top:36px;display:grid;gap:26px;max-width:720px}
-  .qq{border:1px solid var(--line-dark);padding:26px 24px;background:var(--ink-soft)}
-  .qq .qnum{font-family:var(--mono);font-size:.68rem;letter-spacing:.22em;color:var(--safelight);text-transform:uppercase}
-  .qq h3{font-family:var(--body);font-weight:600;font-size:1.1rem;margin:10px 0 16px;line-height:1.45}
-  .opts{display:grid;gap:10px}
-  .opts button{
-    font-family:var(--body);font-size:.98rem;text-align:left;
-    background:transparent;color:var(--paper);
-    border:1px solid var(--line-dark);padding:12px 14px;cursor:pointer;
-    transition:border-color .15s ease,background .15s ease;
-  }
-  .opts button:hover{border-color:var(--silver)}
-  .opts button.right{border-color:#4c9a5f;background:rgba(76,154,95,.12)}
-  .opts button.wrong{border-color:var(--safelight);background:rgba(194,47,38,.12)}
-  .qq .expl{display:none;margin-top:14px;font-size:.92rem;color:#c6c3bb;border-left:3px solid var(--safelight);padding-left:12px}
-  .qq.done .expl{display:block}
-  #score{font-family:var(--mono);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver);margin-top:8px}
-
-  /* ---------- ORTE & LINKS ---------- */
-  .spots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:36px}
-  .spot{border:1px solid var(--line-light);padding:22px;background:#f2efe9}
-  .spot h3{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:1.15rem;letter-spacing:.03em}
-  .spot .meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:#8a1f19;display:block;margin:6px 0 10px}
-  .spot p{font-size:.93rem;color:#37342e}
-  .links{margin-top:44px;border-top:3px solid var(--ink);padding-top:20px}
-  .links ul{list-style:none;display:grid;gap:10px;margin-top:14px}
-  .links a{color:#8a1f19;text-decoration-thickness:1px;text-underline-offset:3px}
-  .links li span{font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:#6f6a60;display:block}
-
-  footer{
-    background:#0c0b0e;color:var(--silver);
-    font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;
-    padding:34px 24px;text-align:center;line-height:2;
-  }
-</style>
+<title>Berlin — Stadt aus Licht, Schatten & Beton</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="t-home">
 
-<!-- ================= HERO ================= -->
-<header>
+<nav class="topbar">
   <div class="wrap">
-    <p class="eyebrow">Erste urkundliche Erwähnung 1237 · 35&nbsp;mm</p>
-    <h1 class="hero-title">Berlin</h1>
-    <div class="hero-sub">
-      <span class="tag"><b>Licht</b> — Fotografie</span>
-      <span class="tag"><b>Schatten</b> — Kino</span>
-      <span class="tag"><b>Bewegung</b> — 800 Jahre Geschichte</span>
+    <a class="brand" href="index.html"><span class="dot"></span>Berlin</a>
+    <div class="navlinks">
+      <a href="film.html">Film</a>
+      <a href="fotografie.html">Fotografie</a>
+      <a href="kultur.html">Kultur</a>
+      <a href="politik.html">Politik &amp; DDR</a>
+      <a href="persoenlichkeiten.html">Persönlichkeiten</a>
+      <a href="queer.html">Queer &amp; Lesbisch</a>
     </div>
-    <p class="hero-claim">„Berlin ist dazu verdammt, ewig zu werden und niemals zu sein." — Karl Scheffler, 1910. Eine Stadt, die sich ständig neu erfindet — und dabei das Kino und die Fotografie miterfunden hat.</p>
   </div>
-  <p class="scroll-hint">▼ Weiter scrollen</p>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">Erste Erwähnung 1237 · seitdem im Umbau</p>
+    <h1>Berlin</h1>
+    <p class="sub">Eine Stadt aus Licht, Schatten und Beton — die das Kino und die Fotografie mit erfunden, sich selbst mehrfach zerstört und immer wieder neu zusammengesetzt hat. Sechs Postkarten. Zum Anklicken.</p>
+  </div>
+  <svg class="hero-illus" viewBox="0 0 300 300" fill="none" stroke="#e2402b" stroke-width="4" aria-hidden="true">
+    <!-- Fernsehturm -->
+    <line x1="150" y1="300" x2="150" y2="120"/>
+    <circle cx="150" cy="105" r="26" fill="#171c30" stroke="#f0b429"/>
+    <line x1="150" y1="79" x2="150" y2="40"/>
+    <circle cx="150" cy="40" r="5" fill="#e2402b" stroke="none"/>
+    <line x1="120" y1="300" x2="130" y2="180" stroke="#2fa15f"/>
+    <line x1="180" y1="300" x2="170" y2="180" stroke="#2fa15f"/>
+  </svg>
 </header>
 
-<!-- ================= FILMSTREIFEN ================= -->
-<section class="dark" id="zeitstrahl">
+<!-- POSTKARTEN -->
+<section>
   <div class="wrap">
-    <p class="eyebrow">Akt I — Der Zeitstrahl</p>
-    <h2>800 Jahre in acht Bildern</h2>
-    <p class="lead">Berlins Geschichte als Filmstreifen: horizontal wischen und Bild für Bild durch die Jahrhunderte fahren.</p>
-  </div>
-  <div class="strip-outer">
-    <div class="strip" tabindex="0" aria-label="Zeitstrahl der Berliner Geschichte, horizontal scrollbar">
-      <div class="frame">
-        <span class="f-label">Bild 01 · Anfänge</span>
-        <span class="year">1237</span>
-        <p>Cölln, die Schwesterstadt Berlins an der Spree, wird erstmals urkundlich erwähnt — das offizielle „Geburtsjahr". Zwei Handelsstädtchen im Sumpf, aus denen mal eine Weltstadt wird. „Berlin" leitet sich vermutlich vom slawischen Wort für Sumpf ab — nicht vom Bären.</p>
-      </div>
-      <div class="frame">
-        <span class="f-label">Bild 02 · Preußen</span>
-        <span class="year">1701</span>
-        <p>Berlin wird Residenzstadt der preußischen Könige. Unter Friedrich dem Großen entstehen Unter den Linden, das Forum Fridericianum — und der Ruf als Stadt der Aufklärung und Toleranz, in die Hugenotten und Freigeister ziehen.</p>
-      </div>
-      <div class="frame">
-        <span class="f-label">Bild 03 · Kaiserreich</span>
-        <span class="year">1871</span>
-        <p>Hauptstadt des Deutschen Reichs. Die Industrialisierung explodiert: Siemens, AEG, Borsig. Mietskasernen wachsen, die Stadt wird „Elektropolis" — nirgendwo in Europa wird so viel gebaut, erfunden und fotografiert.</p>
-      </div>
-      <div class="frame marked">
-        <span class="f-label">Bild 04 · Weimar</span>
-        <span class="year">1920</span>
-        <p>Das Groß-Berlin-Gesetz macht Berlin über Nacht zur Millionen-Metropole mit fast 3,9 Mio. Menschen — zeitweise die drittgrößte Stadt der Welt. Die Goldenen Zwanziger: Kino, Kabarett, Wissenschaft, Nachtleben. Berlins kreativste Dekade.</p>
-      </div>
-      <div class="frame">
-        <span class="f-label">Bild 05 · Katastrophe</span>
-        <span class="year">1933–45</span>
-        <p>NS-Diktatur, Krieg, Shoah. Berlin wird Täterzentrale und am Ende Trümmerfeld: Millionen Kubikmeter Schutt, aus denen später u.&nbsp;a. der Teufelsberg aufgeschüttet wird. Fast die gesamte künstlerische Elite flieht oder wird ermordet.</p>
-      </div>
-      <div class="frame marked">
-        <span class="f-label">Bild 06 · Teilung</span>
-        <span class="year">1961</span>
-        <p>Bau der Mauer: 155 Kilometer Beton um West-Berlin. 28 Jahre lang laufen Familien, Straßen und U-Bahn-Linien gegen eine Wand. Die Mauer wird zum meistfotografierten Bauwerk der Welt.</p>
-      </div>
-      <div class="frame marked">
-        <span class="f-label">Bild 07 · Wende</span>
-        <span class="year">1989</span>
-        <p>9. November: Die Mauer fällt — ausgelöst auch durch eine verpatzte Pressekonferenz („… das tritt nach meiner Kenntnis … ist das sofort, unverzüglich"). Die Bilder feiernder Menschen auf der Mauer gehen um die Welt.</p>
-      </div>
-      <div class="frame">
-        <span class="f-label">Bild 08 · Heute</span>
-        <span class="year">Jetzt</span>
-        <p>Wieder Hauptstadt, wieder Sehnsuchtsort. Rund 3,9 Millionen Menschen, über 170 Museen, mehr Brücken als Venedig — und immer noch im Umbau. Scheffler behält recht: ewig werden, niemals sein.</p>
-      </div>
-    </div>
-    <div class="wrap">
-      <p class="strip-caption"><span>◄ wischen / scrollen ►</span><span>BERLIN · SAFETY FILM · 8 FRAMES</span></p>
+    <p class="eyebrow">Wähl eine Karte</p>
+    <h2>Sechs Ansichten dieser Stadt</h2>
+    <p class="lead">Jede Karte führt zu einer eigenen Seite — mit Geschichten, klickbaren Fakten und Sachen zum Weiterschauen.</p>
+
+    <div class="postcards">
+
+      <a class="postcard" href="film.html">
+        <div class="pc-top">
+          <span class="stamp">35<br>MM</span>
+          <svg viewBox="0 0 120 100" fill="none" stroke="#e2402b" stroke-width="4">
+            <rect x="18" y="20" width="84" height="60" rx="4"/>
+            <circle cx="45" cy="50" r="16" stroke="#f0b429"/>
+            <line x1="16" y1="28" x2="16" y2="72" stroke="#f0b429" stroke-width="8" stroke-dasharray="4 6"/>
+            <line x1="104" y1="28" x2="104" y2="72" stroke="#f0b429" stroke-width="8" stroke-dasharray="4 6"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <span class="pc-num">Karte 01</span>
+          <h3>Film</h3>
+          <p>Die erste Kinovorführung der Welt, Babelsberg älter als Hollywood, „Metropolis" und die Berlinale.</p>
+          <span class="go">Ansehen ▸</span>
+        </div>
+      </a>
+
+      <a class="postcard" href="fotografie.html">
+        <div class="pc-top">
+          <span class="stamp">ISO<br>100</span>
+          <svg viewBox="0 0 120 100" fill="none" stroke="#3b7d9e" stroke-width="4">
+            <rect x="22" y="30" width="76" height="52" rx="5"/>
+            <rect x="46" y="22" width="28" height="12" rx="2" fill="#171c30"/>
+            <circle cx="60" cy="56" r="16" stroke="#e2402b"/>
+            <circle cx="60" cy="56" r="6" fill="#e2402b" stroke="none"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <span class="pc-num">Karte 02</span>
+          <h3>Fotografie</h3>
+          <p>Von Zilles Hinterhöfen über Yva und Helmut Newton bis zur Mauer als meistfotografiertem Bauwerk.</p>
+          <span class="go">Ansehen ▸</span>
+        </div>
+      </a>
+
+      <a class="postcard" href="kultur.html">
+        <div class="pc-top">
+          <span class="stamp">LIVE</span>
+          <svg viewBox="0 0 120 100" fill="none" stroke="#c8447c" stroke-width="4">
+            <circle cx="45" cy="62" r="14"/><line x1="59" y1="62" x2="59" y2="26"/>
+            <circle cx="82" cy="52" r="14"/><line x1="96" y1="52" x2="96" y2="20"/>
+            <line x1="59" y1="26" x2="96" y2="20" stroke="#2fa15f"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <span class="pc-num">Karte 03</span>
+          <h3>Kultur</h3>
+          <p>Goldene Zwanziger, Bowie in Schöneberg, Techno und Berghain, Museumsinsel, Kabarett und Streetart.</p>
+          <span class="go">Ansehen ▸</span>
+        </div>
+      </a>
+
+      <a class="postcard" href="politik.html">
+        <div class="pc-top">
+          <span class="stamp">1989</span>
+          <svg viewBox="0 0 120 100" fill="none" stroke="#2f8f5f" stroke-width="4">
+            <rect x="24" y="34" width="20" height="44" fill="#171c30"/>
+            <rect x="48" y="34" width="20" height="44" fill="#171c30"/>
+            <rect x="72" y="34" width="20" height="44" stroke="#e2402b"/>
+            <line x1="20" y1="34" x2="100" y2="34" stroke="#f0b429"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <span class="pc-num">Karte 04</span>
+          <h3>Politik &amp; DDR</h3>
+          <p>Luftbrücke, Mauerbau, Geisterbahnhöfe, Ampelmännchen, Trabi — und die Nacht des 9. November.</p>
+          <span class="go">Ansehen ▸</span>
+        </div>
+      </a>
+
+      <a class="postcard" href="persoenlichkeiten.html">
+        <div class="pc-top">
+          <span class="stamp">★</span>
+          <svg viewBox="0 0 120 100" fill="none" stroke="#c87f1e" stroke-width="4">
+            <circle cx="60" cy="42" r="18"/>
+            <path d="M30 84 q30 -30 60 0" stroke="#3b7d9e"/>
+            <path d="M60 24 l4 9 10 1 -7 7 2 10 -9 -5 -9 5 2 -10 -7 -7 10 -1z" fill="#f0b429" stroke="none"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <span class="pc-num">Karte 05</span>
+          <h3>Persönlichkeiten</h3>
+          <p>Marlene Dietrich, Käthe Kollwitz, Rosa Luxemburg, Einstein, Nina Hagen und der Bowie der Mauerjahre.</p>
+          <span class="go">Ansehen ▸</span>
+        </div>
+      </a>
+
+      <a class="postcard" href="queer.html">
+        <div class="pc-top">
+          <span class="stamp">CSD</span>
+          <svg viewBox="0 0 120 100" fill="none" stroke="#d94f86" stroke-width="4">
+            <path d="M20 78 A40 40 0 0 1 100 78" stroke="#d94f86"/>
+            <path d="M30 78 A30 30 0 0 1 90 78" stroke="#7a5fc0"/>
+            <path d="M40 78 A20 20 0 0 1 80 78" stroke="#f0b429"/>
+            <path d="M50 78 A10 10 0 0 1 70 78" stroke="#2fa15f"/>
+          </svg>
+        </div>
+        <div class="pc-body">
+          <span class="pc-num">Karte 06</span>
+          <h3>Queer &amp; Lesbisch</h3>
+          <p>Das queere Weimar-Berlin, Hirschfelds Institut, das Eldorado, lesbische Magazine und der Nollendorfplatz.</p>
+          <span class="go">Ansehen ▸</span>
+        </div>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- ================= FOTOGRAFIE ================= -->
-<section class="light" id="fotografie">
+<!-- BERLINERISCH -->
+<section class="dark">
   <div class="wrap">
-    <p class="eyebrow">Akt II — Licht</p>
-    <h2>Berlin &amp; die Fotografie</h2>
-    <p class="lead">Kaum eine Stadt wurde so obsessiv fotografiert — weil sich kaum eine Stadt so oft radikal verändert hat. Vier Namen und Momente, die man kennen sollte:</p>
-    <div class="story-grid">
-      <div class="story">
-        <span class="meta">um 1900 · Milieu</span>
-        <h3>Heinrich Zille</h3>
-        <p>Der Chronist des Berliner „Milljöhs": Hinterhöfe, Kneipen, Arbeiterkinder. Berühmt für seine Zeichnungen — aber Zille fotografierte auch, lange bevor Street Photography ein Begriff war. Sein Satz: Man kann mit einer Wohnung einen Menschen genauso töten wie mit einer Axt.</p>
-      </div>
-      <div class="story">
-        <span class="meta">1920er · Mode &amp; Avantgarde</span>
-        <h3>Yva</h3>
-        <p>Else Ernestine Neuländer-Simon, Künstlername Yva: eine der gefragtesten Mode- und Aktfotografinnen der Weimarer Zeit mit eigenem Großstudio. Ihr berühmtester Lehrling: ein Teenager namens Helmut Neustädter. Yva wurde 1942 von den Nazis ermordet — ihr Werk wird erst heute wiederentdeckt.</p>
-      </div>
-      <div class="story">
-        <span class="meta">geb. 1920 in Berlin</span>
-        <h3>Helmut Newton</h3>
-        <p>Aus Helmut Neustädter wurde im Exil Helmut Newton — einer der einflussreichsten (und umstrittensten) Modefotografen des 20. Jahrhunderts. Kurz vor seinem Tod kehrte sein Archiv zurück: Die Helmut Newton Stiftung sitzt seit 2004 im Museum für Fotografie am Bahnhof Zoo — genau dort, wo er 1938 aus Berlin floh.</p>
-      </div>
-      <div class="story">
-        <span class="meta">1961–89 · Beton</span>
-        <h3>Die Mauer als Motiv</h3>
-        <p>Die Berliner Mauer wurde zum meistfotografierten Bauwerk ihrer Zeit: Aussichtsplattformen für Touristen im Westen, Sprung-Bilder wie das des Grenzsoldaten Conrad Schumann (1961), zuletzt die Bilder der Nacht des 9. November 1989. Fotografie hat die Teilung ins Weltgedächtnis eingebrannt.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FILM ================= -->
-<section class="dark" id="film">
-  <div class="wrap">
-    <p class="eyebrow">Akt III — Schatten</p>
-    <h2>Berlin &amp; das Kino</h2>
-    <p class="lead">Das Kino wurde nicht in Hollywood erwachsen — sondern in und um Berlin. Sechs Szenen aus der Filmgeschichte:</p>
-    <div class="story-grid">
-      <div class="story">
-        <span class="meta">1. November 1895</span>
-        <h3>Vor den Lumières</h3>
-        <p>Die Brüder Skladanowsky zeigen im Varieté „Wintergarten" mit ihrem selbstgebauten „Bioscop" die erste kommerzielle Filmvorführung der Welt vor zahlendem Publikum — knapp zwei Monate <em>vor</em> den berühmten Lumière-Brüdern in Paris. Der perfekte Angeber-Fakt.</p>
-      </div>
-      <div class="story">
-        <span class="meta">seit 1912</span>
-        <h3>Babelsberg</h3>
-        <p>Vor den Toren Berlins entsteht das älteste Großatelier-Filmstudio der Welt — älter als Hollywood. Hier drehen Fritz Lang, später kommen „Inglourious Basterds", „Grand Budapest Hotel" und die „Matrix"-Fortsetzungen. Über 110 Jahre Filmgeschichte an einem Ort.</p>
-      </div>
-      <div class="story">
-        <span class="meta">1920 / 1927</span>
-        <h3>Expressionismus</h3>
-        <p>„Das Cabinet des Dr. Caligari" (gedreht in Berlin-Weißensee) erfindet mit schiefen Kulissen und harten Schatten die Bildsprache des Horrorfilms. Fritz Langs „Metropolis" (1927, Babelsberg) wird der teuerste Stummfilm seiner Zeit — und prägt Science-Fiction bis heute, von Blade Runner bis Star Wars.</p>
-      </div>
-      <div class="story">
-        <span class="meta">1927</span>
-        <h3>Die Stadt als Star</h3>
-        <p>Walther Ruttmanns „Berlin — Die Sinfonie der Großstadt" macht die Stadt selbst zur Hauptdarstellerin: ein Tag Berlin, ohne Handlung, nur Rhythmus, Maschinen, Menschen. Der Film ist die Brücke zwischen Fotografie und Kino — und bis heute atemberaubend modern.</p>
-      </div>
-      <div class="story">
-        <span class="meta">1930 → 1933</span>
-        <h3>Dietrich &amp; der Exodus</h3>
-        <p>Marlene Dietrich, geboren in Schöneberg, wird mit „Der blaue Engel" über Nacht zum Weltstar. Ab 1933 flieht die Elite des deutschen Films vor den Nazis: Fritz Lang, Billy Wilder, Peter Lorre. Hollywood, wie wir es kennen, ist zu einem großen Teil ein Werk Berliner Emigrant:innen.</p>
-      </div>
-      <div class="story">
-        <span class="meta">seit 1951</span>
-        <h3>Berlinale</h3>
-        <p>Mitten im Kalten Krieg als „Schaufenster der freien Welt" in West-Berlin gegründet, heute eines der drei großen A-Festivals neben Cannes und Venedig — und das größte Publikumsfestival der Welt: Hunderttausende Tickets gehen jedes Jahr an ganz normale Berliner:innen.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= FAKTEN ================= -->
-<section class="light" id="fakten">
-  <div class="wrap">
-    <p class="eyebrow">Akt IV — Zum Angeben</p>
-    <h2>Facts fürs erste Gespräch</h2>
-    <p class="lead">Antippen zum Aufdecken — wie ein Kontaktabzug in der Dunkelkammer.</p>
-    <div class="cards">
-      <button class="card" type="button">
-        <span class="q">Mehr Brücken als Venedig</span>
-        <span class="a">Berlin hat rund 960 Brücken — Venedig etwa 400. Dazu kommen mehr Wasserwege als in Amsterdam. Berlin ist heimlich eine Wasserstadt.</span>
-        <span class="hint">Antippen ▸</span>
-      </button>
-      <button class="card" type="button">
-        <span class="q">Die Currywurst-Erfinderin</span>
-        <span class="a">Herta Heuwer mischte 1949 an ihrer Imbissbude in Charlottenburg Ketchup, Worcestersauce und Currypulver — und ließ sich die Sauce später sogar patentieren („Chillup").</span>
-        <span class="hint">Antippen ▸</span>
-      </button>
-      <button class="card" type="button">
-        <span class="q">Ein Berg aus Trümmern</span>
-        <span class="a">Der Teufelsberg ist kein echter Berg: Er wurde nach dem Krieg aus Millionen Kubikmetern Kriegsschutt aufgeschüttet — darunter liegt eine nie fertiggestellte NS-Militärhochschule. Oben: die legendäre US-Abhörstation.</span>
-        <span class="hint">Antippen ▸</span>
-      </button>
-      <button class="card" type="button">
-        <span class="q">Sumpf statt Bär</span>
-        <span class="a">Der Name „Berlin" kommt vermutlich vom altslawischen Wort für Sumpf („brl-"). Der Bär im Wappen ist eine spätere Deutung — hübsch, aber sprachlich falsch.</span>
-        <span class="hint">Antippen ▸</span>
-      </button>
-      <button class="card" type="button">
-        <span class="q">Geisterbahnhöfe</span>
-        <span class="a">Zu Mauerzeiten fuhren West-Berliner U-Bahnen unter Ost-Berlin hindurch — durch abgeriegelte, schwach beleuchtete „Geisterbahnhöfe", bewacht von DDR-Grenzern. Manche Bahnhöfe waren fast 30 Jahre eingefroren.</span>
-        <span class="hint">Antippen ▸</span>
-      </button>
-      <button class="card" type="button">
-        <span class="q">Kino-Weltrekord 1895</span>
-        <span class="a">Die erste kommerzielle Filmvorführung der Welt fand nicht in Paris statt, sondern in Berlin: Skladanowsky-Brüder, Wintergarten-Varieté, 1. November 1895 — vor den Lumières.</span>
-        <span class="hint">Antippen ▸</span>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ================= QUIZ ================= -->
-<section class="dark" id="quiz">
-  <div class="wrap">
-    <p class="eyebrow">Akt V — Selbsttest</p>
-    <h2>Sitzt der Stoff?</h2>
-    <p class="lead">Fünf Fragen vor dem nächsten Date. Ehrlich spielen — die Auflösung kommt sofort.</p>
-    <div class="quiz" id="quizBox"></div>
-    <p id="score"></p>
-  </div>
-</section>
-
-<!-- ================= ORTE & LINKS ================= -->
-<section class="light" id="orte">
-  <div class="wrap">
-    <p class="eyebrow">Abspann — Rausgehen</p>
-    <h2>Orte, an denen Geschichte klebt</h2>
-    <p class="lead">Falls aus Wissen mal ein Ausflug werden soll — vier Orte mit Film- und Foto-Bezug:</p>
-    <div class="spots">
-      <div class="spot">
-        <h3>Museum für Fotografie</h3>
-        <span class="meta">Jebensstr. 2 · am Bahnhof Zoo</span>
-        <p>Helmut Newton Stiftung plus wechselnde Fotografie-Ausstellungen der Kunstbibliothek — im ehemaligen Landwehr-Kasino. Newtons Rückkehr an den Ort seiner Flucht.</p>
-      </div>
-      <div class="spot">
-        <h3>Babylon Berlin-Mitte</h3>
-        <span class="meta">Rosa-Luxemburg-Platz · seit 1929</span>
-        <p>Kino aus der Weimarer Zeit mit Original-Kinoorgel — hier laufen Stummfilme mit Live-Musik. „Metropolis" auf großer Leinwand sehen, wo es hingehört.</p>
-      </div>
-      <div class="spot">
-        <h3>East Side Gallery</h3>
-        <span class="meta">Friedrichshain · 1,3 km Mauer</span>
-        <p>Das längste erhaltene Mauerstück, 1990 von Künstler:innen aus aller Welt bemalt — die größte Open-Air-Galerie der Welt und eines der meistfotografierten Motive Berlins.</p>
-      </div>
-      <div class="spot">
-        <h3>Filmpark &amp; Studio Babelsberg</h3>
-        <span class="meta">Potsdam · S-Bahn ab Berlin</span>
-        <p>Das älteste Großatelier-Studio der Welt von innen: Kulissen, Filmgeschichte, Drehorte. Guter Halbtagesausflug mit maximalem Film-Nerd-Faktor.</p>
-      </div>
-    </div>
-    <div class="links">
-      <p class="eyebrow">Weiterschauen &amp; Weiterlesen</p>
-      <ul>
-        <li><span>Doku-Klassiker · 1927</span><a href="https://de.wikipedia.org/wiki/Berlin_%E2%80%93_Die_Sinfonie_der_Gro%C3%9Fstadt" target="_blank" rel="noopener">„Berlin — Die Sinfonie der Großstadt" (frei verfügbar, u.&nbsp;a. auf YouTube)</a></li>
-        <li><span>Museum · Fotografie</span><a href="https://www.smb.museum/museen-einrichtungen/museum-fuer-fotografie/" target="_blank" rel="noopener">Museum für Fotografie / Helmut Newton Stiftung — Staatliche Museen zu Berlin</a></li>
-        <li><span>Stadtgeschichte interaktiv</span><a href="https://www.stadtmuseum.de" target="_blank" rel="noopener">Stadtmuseum Berlin</a></li>
-        <li><span>Mauer &amp; Teilung</span><a href="https://www.stiftung-berliner-mauer.de" target="_blank" rel="noopener">Stiftung Berliner Mauer — Gedenkstätte Bernauer Straße</a></li>
-        <li><span>Serie zum Einstieg</span><a href="https://de.wikipedia.org/wiki/Babylon_Berlin" target="_blank" rel="noopener">„Babylon Berlin" — die 20er als Serie (perfekter gemeinsamer Serienabend)</a></li>
-      </ul>
-    </div>
+    <p class="eyebrow">Kleiner Extra-Trick</p>
+    <h2>Berlinerisch für Angeber:innen</h2>
+    <p class="lead">Ein bisschen Dialekt streut man beim Date charmant ein. Tipp ein Wort an — es verrät, was es heißt.</p>
+    <div class="chips" id="chips"></div>
+    <p id="chip-out">Tipp oben ein Wort an …</p>
   </div>
 </section>
 
 <footer>
-  Berlin · Stadt aus Licht und Schatten<br>
-  Zusammengestellt mit Liebe zum Detail — Ende des Films
+  Berlin · Licht, Schatten &amp; Beton<br>
+  Sechs Seiten Stadtgeschichte — <a href="film.html">los geht's beim Film ▸</a>
 </footer>
 
 <script>
-  // Fakten-Karten
-  document.querySelectorAll('.card').forEach(c=>{
-    c.addEventListener('click',()=>c.classList.toggle('open'));
-  });
-
-  // Quiz
-  const QUESTIONS=[
-    {q:'Wo fand die erste kommerzielle Filmvorführung der Welt statt?',
-     opts:['Paris, bei den Brüdern Lumière','Berlin, im Wintergarten-Varieté','New York, bei Thomas Edison'],
-     right:1,
-     expl:'Berlin! Die Skladanowsky-Brüder zeigten ihr „Bioscop" am 1. November 1895 — vor den Lumières in Paris.'},
-    {q:'Was war Yvas Rolle in der Fotografie-Geschichte?',
-     opts:['Erste Pressefotografin Preußens','Star-Modefotografin der Weimarer Zeit und Lehrerin von Helmut Newton','Erfinderin des Fotoautomaten'],
-     right:1,
-     expl:'Yva führte eines der wichtigsten Modestudios der 1920er — ihr Lehrling Helmut Neustädter wurde später als Helmut Newton weltberühmt.'},
-    {q:'Woher kommt der Name „Berlin" vermutlich?',
-     opts:['Vom Bären im Stadtwappen','Vom slawischen Wort für Sumpf','Von einem Stadtgründer namens Berlo'],
-     right:1,
-     expl:'Vom altslawischen „brl-" für Sumpf. Der Bär kam erst später ins Wappen — als hübsches Missverständnis.'},
-    {q:'Was ist das Besondere am Studio Babelsberg?',
-     opts:['Es ist das älteste Großatelier-Filmstudio der Welt','Hier wurde der erste Farbfilm gedreht','Es gehört seit 1950 zu Hollywood'],
-     right:0,
-     expl:'Gegründet 1912 — älter als Hollywood. Von „Metropolis" bis „Grand Budapest Hotel" wurde hier Filmgeschichte gedreht.'},
-    {q:'Wie viele Brücken hat Berlin ungefähr?',
-     opts:['Rund 200','Rund 960 — mehr als Venedig','Genau 555'],
-     right:1,
-     expl:'Rund 960 Brücken — Venedig kommt auf etwa 400. Berlin ist eine verkappte Wasserstadt.'}
+  const SLANG=[
+    ['Schrippe','das klassische Weizenbrötchen — in Berlin heißt es nie „Semmel"'],
+    ['Icke','„ich" — das berlinerischste Wort überhaupt: „Icke? Nee!"'],
+    ['Pfannkuchen','der Berliner Krapfen. Wer „Berliner" sagt, ist von woanders'],
+    ['Bulette','die Frikadelle. Kommt vom französischen „boulette"'],
+    ['Late','„Leute" — im Berliner Dialekt gern verschluckt'],
+    ['jwd','„janz weit draußen" — irgendwo am Stadtrand, gefühlt am Ende der Welt'],
+    ['Molle','ein Bier. „Ne Molle und ’n Korn" ist eine ganze Bestellung'],
+    ['knorke','„richtig gut, super" — herrlich altberlinerisch'],
+    ['Atze','Kumpel, Bruder — freundschaftliche Anrede'],
+    ['dufte','„toll, klasse" — noch so ein Klassiker'],
   ];
-  const box=document.getElementById('quizBox');
-  const scoreEl=document.getElementById('score');
-  let answered=0,correct=0;
-  QUESTIONS.forEach((item,i)=>{
-    const div=document.createElement('div');
-    div.className='qq';
-    div.innerHTML='<span class="qnum">Frage '+(i+1)+' / '+QUESTIONS.length+'</span><h3>'+item.q+'</h3>';
-    const opts=document.createElement('div');
-    opts.className='opts';
-    item.opts.forEach((o,j)=>{
-      const b=document.createElement('button');
-      b.type='button';b.textContent=o;
-      b.addEventListener('click',()=>{
-        if(div.classList.contains('done'))return;
-        div.classList.add('done');
-        answered++;
-        if(j===item.right){b.classList.add('right');correct++;}
-        else{b.classList.add('wrong');opts.children[item.right].classList.add('right');}
-        scoreEl.textContent='Stand: '+correct+' von '+answered+' richtig'+(answered===QUESTIONS.length?(correct===QUESTIONS.length?' — Perfekt. Daria hat keine Chance.':' — solide Basis fürs Gespräch.'):'');
-      });
-      opts.appendChild(b);
+  const box=document.getElementById('chips'), out=document.getElementById('chip-out');
+  SLANG.forEach(([w,def])=>{
+    const b=document.createElement('button');
+    b.className='chip';b.type='button';
+    b.innerHTML='<span class="w">'+w+'</span>';
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
+      b.classList.add('on');
+      out.innerHTML='<em>'+w+'</em> — '+def;
     });
-    div.appendChild(opts);
-    const ex=document.createElement('p');
-    ex.className='expl';ex.textContent=item.expl;
-    div.appendChild(ex);
-    box.appendChild(div);
+    box.appendChild(b);
   });
 </script>
 </body>
