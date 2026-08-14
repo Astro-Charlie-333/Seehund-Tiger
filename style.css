@@ -26,8 +26,8 @@
 
 /* ---- Themenwelten: Akzente, Leuchten, Hero-Hintergrund ---- */
 body.t-home    {--accent:#e63f2b;--accent-2:#2fbf78;--glow:rgba(230,63,43,.4);--glow2:rgba(47,191,120,.16)}
-body.t-film    {--accent:#e63f2b;--accent-2:#f0b429;--glow:rgba(230,63,43,.42);--glow2:rgba(240,180,41,.16)}
-body.t-foto    {--accent:#e0392e;--accent-2:#48b3d6;--glow:rgba(224,57,46,.5);--glow2:rgba(72,179,214,.14)}
+body.t-film    {--accent:#d8382a;--accent-2:#e0b25a;--glow:rgba(216,56,42,.3);--glow2:rgba(224,178,90,.12)}
+body.t-foto    {--accent:#d33a2c;--accent-2:#b8b19c;--glow:rgba(211,58,44,.34);--glow2:rgba(184,177,156,.1)}
 body.t-kultur  {--accent:#ff2e88;--accent-2:#12d3c7;--glow:rgba(255,46,136,.42);--glow2:rgba(18,211,199,.2)}
 body.t-politik {--accent:#37c07a;--accent-2:#e63f2b;--glow:rgba(55,192,122,.32);--glow2:rgba(230,63,43,.16)}
 body.t-menschen{--accent:#e8a020;--accent-2:#48b3d6;--glow:rgba(232,160,32,.34);--glow2:rgba(72,179,214,.16)}
@@ -80,7 +80,8 @@ section{padding:84px 0;position:relative}
 .hero .wrap{position:relative;z-index:2;padding:96px 26px}
 .hero .kicker{font-family:var(--mono);font-size:.78rem;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;display:flex;align-items:center;gap:12px}
 .hero .kicker::before{content:"";width:42px;height:2px;background:var(--accent);display:inline-block}
-.hero h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(3.6rem,15vw,11rem);line-height:.86;letter-spacing:.005em;margin:.14em 0 .18em;
+.hero .kicker{margin-bottom:.25em}
+.hero h1{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(3.6rem,15vw,11rem);line-height:.92;letter-spacing:.005em;margin:.26em 0 .2em;padding-top:.06em;
   text-shadow:0 0 60px var(--glow)}
 .hero .sub{max-width:600px;color:#e7e3da;font-size:1.16rem;font-style:italic;line-height:1.5}
 .hero-scene{position:absolute;z-index:1;pointer-events:none}
@@ -120,6 +121,9 @@ section{padding:84px 0;position:relative}
 
 /* ============ SECTION HEADER mit Motiv ============ */
 .sec-head{display:flex;align-items:center;gap:20px}
+.sec-head>div{min-width:0}
+.sec-head .eyebrow{display:block;margin-bottom:10px}
+.sec-head h2{margin:0;line-height:.95;padding-top:.04em}
 .sec-head .motif{width:56px;height:56px;flex:none}
 .sec-head .motif svg{width:100%;height:100%}
 
@@ -230,3 +234,38 @@ footer a{color:var(--paper);text-decoration:none;border-bottom:1px solid var(--a
 @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
 .drift{animation:drift 9s ease-in-out infinite}
 @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* ============================================================
+   ARTSY-Bausteine · Atelier / Dunkelkammer
+   ============================================================ */
+/* Kontaktabzug */
+.contact{margin-top:34px;background:#0c0d13;border:1px solid var(--line-dark);padding:26px 22px 30px;position:relative}
+.contact .cs-cap{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-d);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.cs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:640px){.cs-grid{grid-template-columns:repeat(2,1fr)}}
+.cell{position:relative;background:#15161f;border:none;padding:0;cursor:pointer;aspect-ratio:3/2;overflow:hidden;font-family:inherit}
+.cell svg{width:100%;height:100%;display:block;filter:grayscale(1) contrast(1.05)}
+.cell .num{position:absolute;top:4px;left:6px;font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;color:#c9c2b0;opacity:.65;z-index:2}
+.cell .mark{position:absolute;inset:0;z-index:3;opacity:0;transition:opacity .12s}
+.cell:hover .mark{opacity:.55}
+.cell.picked .mark{opacity:1}
+.cell.picked{outline:2px solid var(--accent);outline-offset:-2px}
+.cs-sprocket{height:14px;margin:12px 0;background-image:repeating-linear-gradient(90deg,transparent 0 12px,#2a2b38 12px 20px);opacity:.5}
+
+/* Prints an der Leine */
+.clothesline{position:relative;margin-top:36px;padding-top:26px;display:flex;gap:26px;flex-wrap:wrap;justify-content:center}
+.clothesline::before{content:"";position:absolute;top:12px;left:0;right:0;height:2px;background:var(--line-light)}
+.print{background:#fbf9f4;padding:12px 12px 30px;border:1px solid #d8d2c2;box-shadow:3px 6px 14px rgba(0,0,0,.28);width:190px;transform:rotate(var(--rot,-2deg));transition:transform .18s}
+.print:hover{transform:rotate(0) translateY(-3px)}
+.print::before{content:"";position:absolute;margin-top:-22px;margin-left:78px;width:10px;height:16px;background:var(--accent);clip-path:polygon(20% 0,80% 0,100% 100%,0 100%)}
+.print .frame-img{background:#12131b;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center}
+.print .frame-img svg{width:78%;height:78%}
+.print .cap{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:#6f6a5c;text-align:center;margin-top:10px}
+
+/* Storyboard */
+.board{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:34px;border:1px solid var(--line-dark)}
+.pane{background:#12131b;border-right:1px solid var(--line-dark);padding:0}
+.pane:last-child{border-right:none}
+.pane .sk{aspect-ratio:16/9;background:#0e0f16;display:flex;align-items:center;justify-content:center}
+.pane .sk svg{width:100%;height:100%}
+.pane .lbl{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-d);padding:9px 12px;display:flex;justify-content:space-between}
