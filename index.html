@@ -15,184 +15,198 @@
       <a href="film.html">Film</a>
       <a href="fotografie.html">Fotografie</a>
       <a href="kultur.html">Kultur</a>
-      <a href="politik.html">Politik &amp; DDR</a>
+      <a href="politik.html">Politik&nbsp;&amp;&nbsp;DDR</a>
       <a href="persoenlichkeiten.html">Persönlichkeiten</a>
-      <a href="queer.html">Queer &amp; Lesbisch</a>
+      <a href="queer.html">Queer&nbsp;&amp;&nbsp;Lesbisch</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 <header class="hero">
-  <div class="wrap">
-    <p class="kicker">Erste Erwähnung 1237 · seitdem im Umbau</p>
-    <h1>Berlin</h1>
-    <p class="sub">Eine Stadt aus Licht, Schatten und Beton — die das Kino und die Fotografie mit erfunden, sich selbst mehrfach zerstört und immer wieder neu zusammengesetzt hat. Sechs Postkarten. Zum Anklicken.</p>
-  </div>
-  <svg class="hero-illus" viewBox="0 0 300 300" fill="none" stroke="#e2402b" stroke-width="4" aria-hidden="true">
-    <!-- Fernsehturm -->
-    <line x1="150" y1="300" x2="150" y2="120"/>
-    <circle cx="150" cy="105" r="26" fill="#171c30" stroke="#f0b429"/>
-    <line x1="150" y1="79" x2="150" y2="40"/>
-    <circle cx="150" cy="40" r="5" fill="#e2402b" stroke="none"/>
-    <line x1="120" y1="300" x2="130" y2="180" stroke="#2fa15f"/>
-    <line x1="180" y1="300" x2="170" y2="180" stroke="#2fa15f"/>
+  <!-- Skyline -->
+  <svg class="hero-scene" viewBox="0 0 1200 340" preserveAspectRatio="xMidYMax slice"
+       style="left:0;right:0;bottom:0;width:100%;height:60%;opacity:.9" aria-hidden="true">
+    <g fill="none" stroke="#ece6d8" stroke-width="2.2" stroke-linejoin="round">
+      <!-- Boden -->
+      <line x1="0" y1="330" x2="1200" y2="330" stroke-width="3"/>
+      <!-- Funkturm -->
+      <g class="drift">
+        <path d="M70 330 L96 150 L122 330 M78 274 L114 274 M84 232 L108 232 M89 196 L103 196"/>
+        <path d="M96 150 L96 120"/><circle cx="96" cy="115" r="4" fill="#2fbf78" stroke="none" class="pulse"/>
+      </g>
+      <!-- Plattenbau-Reihe -->
+      <g stroke-width="2">
+        <rect x="150" y="220" width="86" height="110"/>
+        <path d="M162 240h10M182 240h10M202 240h10M162 262h10M182 262h10M202 262h10M162 284h10M182 284h10M202 284h10M162 306h10M182 306h10M202 306h10" stroke="#f0b429" opacity=".8"/>
+      </g>
+      <!-- Brandenburger Tor -->
+      <g stroke-width="2.4">
+        <rect x="270" y="176" width="150" height="18"/>
+        <line x1="284" y1="194" x2="284" y2="330"/><line x1="312" y1="194" x2="312" y2="330"/>
+        <line x1="340" y1="194" x2="340" y2="330"/><line x1="378" y1="194" x2="378" y2="330"/>
+        <line x1="406" y1="194" x2="406" y2="330"/>
+        <!-- Quadriga -->
+        <path d="M320 176 q10 -22 26 -22 q16 0 24 22" stroke="#e63f2b"/>
+        <circle cx="335" cy="150" r="4" stroke="#e63f2b"/>
+      </g>
+      <!-- Berliner Dom -->
+      <g stroke-width="2.4">
+        <rect x="470" y="250" width="150" height="80"/>
+        <path d="M486 250 v-30 h118 v30"/>
+        <path d="M500 220 q45 -70 90 0" stroke="#48b3d6"/>
+        <line x1="545" y1="150" x2="545" y2="128"/><path d="M539 134 h12 M545 128 v-10" stroke="#f0b429"/>
+        <circle cx="512" cy="290" r="10"/><circle cx="578" cy="290" r="10"/>
+      </g>
+      <!-- Fernsehturm (Star) -->
+      <g stroke-width="2.6">
+        <path d="M700 330 L716 118 L732 330 Z" fill="#0e0f16"/>
+        <circle cx="716" cy="104" r="30" fill="#181a26" stroke="#e63f2b"/>
+        <path d="M690 104 a26 12 0 0 0 52 0" stroke="#f0b429"/>
+        <line x1="716" y1="74" x2="716" y2="34"/>
+        <circle cx="716" cy="30" r="5" fill="#e63f2b" stroke="none" class="flicker"/>
+        <path d="M706 330 L713 200 M726 330 L719 200" stroke="#2fbf78" stroke-width="2"/>
+      </g>
+      <!-- Kranich / Baukran (Berlin baut immer) -->
+      <g stroke-width="2" stroke="#f0b429">
+        <line x1="800" y1="330" x2="800" y2="150"/>
+        <path d="M760 165 L860 155"/><line x1="800" y1="150" x2="800" y2="130"/>
+        <line x1="770" y1="160" x2="800" y2="132"/><line x1="830" y1="158" x2="800" y2="132"/>
+        <line x1="845" y1="156" x2="845" y2="172"/>
+      </g>
+      <!-- Häuserzeile -->
+      <g stroke-width="2">
+        <rect x="880" y="238" width="70" height="92"/><rect x="950" y="210" width="60" height="120"/>
+        <path d="M894 258h8M914 258h8M934 258h8M894 284h8M914 284h8M934 284h8M894 308h8M914 308h8M934 308h8" stroke="#e63f2b" opacity=".7"/>
+        <path d="M964 234h8M984 234h8M964 262h8M984 262h8M964 290h8M984 290h8" stroke="#f0b429" opacity=".7"/>
+      </g>
+      <!-- Oberbaumbrücke -->
+      <g stroke-width="2.4">
+        <line x1="1040" y1="300" x2="1200" y2="300"/>
+        <path d="M1060 300 q22 -26 44 0 M1104 300 q22 -26 44 0 M1148 300 q22 -26 44 0"/>
+        <rect x="1090" y="230" width="26" height="70"/><path d="M1090 230 l13 -18 l13 18"/>
+        <rect x="1140" y="230" width="26" height="70"/><path d="M1140 230 l13 -18 l13 18"/>
+        <line x1="1103" y1="300" x2="1103" y2="330"/><line x1="1153" y1="300" x2="1153" y2="330"/>
+      </g>
+    </g>
   </svg>
+
+  <div class="wrap">
+    <p class="kicker">seit 1237 · immer im Umbau</p>
+    <h1>Ber<span class="hollow">lin</span></h1>
+    <p class="sub">Eine Stadt aus Licht, Schatten und Beton — die das Kino und die Fotografie mit erfand, sich selbst mehrfach zerstörte und immer wieder neu zusammensetzte. Sechs Welten. Zum Anklicken.</p>
+  </div>
+  <p class="scroll-hint">▼ das Register wartet</p>
 </header>
 
-<!-- POSTKARTEN -->
-<section>
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="track">
+    <span>Erste Kinovorführung der Welt · 1895</span>
+    <span>Mehr Brücken als Venedig</span>
+    <span>Babelsberg älter als Hollywood</span>
+    <span>155 km Mauer</span>
+    <span>Queerste Stadt der 1920er</span>
+    <span>Techno = UNESCO-Kulturerbe</span>
+    <span>Currywurst erfunden 1949</span>
+    <span>Erste Kinovorführung der Welt · 1895</span>
+    <span>Mehr Brücken als Venedig</span>
+    <span>Babelsberg älter als Hollywood</span>
+    <span>155 km Mauer</span>
+    <span>Queerste Stadt der 1920er</span>
+    <span>Techno = UNESCO-Kulturerbe</span>
+    <span>Currywurst erfunden 1949</span>
+  </div>
+</div>
+
+<!-- ================= REGISTER ================= -->
+<section class="register grain">
   <div class="wrap">
-    <p class="eyebrow">Wähl eine Karte</p>
-    <h2>Sechs Ansichten dieser Stadt</h2>
-    <p class="lead">Jede Karte führt zu einer eigenen Seite — mit Geschichten, klickbaren Fakten und Sachen zum Weiterschauen.</p>
+    <p class="eyebrow reveal">Sechs Ansichten · zum Durchklicken</p>
+    <h2 class="reveal">Das Register</h2>
+    <p class="lead reveal">Jede Karte ist eine eigene Welt mit eigener Energie — fahr drüber, dann leuchtet sie auf.</p>
 
-    <div class="postcards">
-
-      <a class="postcard" href="film.html">
-        <div class="pc-top">
-          <span class="stamp">35<br>MM</span>
-          <svg viewBox="0 0 120 100" fill="none" stroke="#e2402b" stroke-width="4">
-            <rect x="18" y="20" width="84" height="60" rx="4"/>
-            <circle cx="45" cy="50" r="16" stroke="#f0b429"/>
-            <line x1="16" y1="28" x2="16" y2="72" stroke="#f0b429" stroke-width="8" stroke-dasharray="4 6"/>
-            <line x1="104" y1="28" x2="104" y2="72" stroke="#f0b429" stroke-width="8" stroke-dasharray="4 6"/>
-          </svg>
-        </div>
-        <div class="pc-body">
-          <span class="pc-num">Karte 01</span>
-          <h3>Film</h3>
-          <p>Die erste Kinovorführung der Welt, Babelsberg älter als Hollywood, „Metropolis" und die Berlinale.</p>
-          <span class="go">Ansehen ▸</span>
-        </div>
+    <div class="reg-list">
+      <a class="reg-row reveal" href="film.html" style="--rc:#e63f2b">
+        <span class="rn">01</span>
+        <span class="ri"><svg viewBox="0 0 80 80" fill="none" stroke="#e63f2b" stroke-width="4"><rect x="10" y="20" width="60" height="40" rx="3"/><circle cx="30" cy="40" r="10" stroke="#f0b429"/><line x1="8" y1="26" x2="8" y2="54" stroke="#f0b429" stroke-width="6" stroke-dasharray="3 5"/><line x1="72" y1="26" x2="72" y2="54" stroke="#f0b429" stroke-width="6" stroke-dasharray="3 5"/></svg></span>
+        <span class="rt"><h3>Film</h3><p>Die erste Kinovorführung der Welt, Babelsberg älter als Hollywood, „Metropolis" und die Berlinale.</p></span>
+        <span class="arrow">ANSEHEN ▸</span>
       </a>
 
-      <a class="postcard" href="fotografie.html">
-        <div class="pc-top">
-          <span class="stamp">ISO<br>100</span>
-          <svg viewBox="0 0 120 100" fill="none" stroke="#3b7d9e" stroke-width="4">
-            <rect x="22" y="30" width="76" height="52" rx="5"/>
-            <rect x="46" y="22" width="28" height="12" rx="2" fill="#171c30"/>
-            <circle cx="60" cy="56" r="16" stroke="#e2402b"/>
-            <circle cx="60" cy="56" r="6" fill="#e2402b" stroke="none"/>
-          </svg>
-        </div>
-        <div class="pc-body">
-          <span class="pc-num">Karte 02</span>
-          <h3>Fotografie</h3>
-          <p>Von Zilles Hinterhöfen über Yva und Helmut Newton bis zur Mauer als meistfotografiertem Bauwerk.</p>
-          <span class="go">Ansehen ▸</span>
-        </div>
+      <a class="reg-row reveal" href="fotografie.html" style="--rc:#e0392e">
+        <span class="rn">02</span>
+        <span class="ri"><svg viewBox="0 0 80 80" fill="none" stroke="#48b3d6" stroke-width="4"><rect x="14" y="24" width="52" height="38" rx="4"/><rect x="32" y="17" width="18" height="9" rx="2" fill="#0e0f16"/><circle cx="40" cy="43" r="12" stroke="#e0392e"/><circle cx="40" cy="43" r="4" fill="#e0392e" stroke="none"/></svg></span>
+        <span class="rt"><h3>Fotografie</h3><p>Von Zilles Hinterhöfen über Yva und Helmut Newton bis zur Mauer als meistfotografiertem Bauwerk.</p></span>
+        <span class="arrow">ANSEHEN ▸</span>
       </a>
 
-      <a class="postcard" href="kultur.html">
-        <div class="pc-top">
-          <span class="stamp">LIVE</span>
-          <svg viewBox="0 0 120 100" fill="none" stroke="#c8447c" stroke-width="4">
-            <circle cx="45" cy="62" r="14"/><line x1="59" y1="62" x2="59" y2="26"/>
-            <circle cx="82" cy="52" r="14"/><line x1="96" y1="52" x2="96" y2="20"/>
-            <line x1="59" y1="26" x2="96" y2="20" stroke="#2fa15f"/>
-          </svg>
-        </div>
-        <div class="pc-body">
-          <span class="pc-num">Karte 03</span>
-          <h3>Kultur</h3>
-          <p>Goldene Zwanziger, Bowie in Schöneberg, Techno und Berghain, Museumsinsel, Kabarett und Streetart.</p>
-          <span class="go">Ansehen ▸</span>
-        </div>
+      <a class="reg-row reveal" href="kultur.html" style="--rc:#ff2e88">
+        <span class="rn">03</span>
+        <span class="ri"><svg viewBox="0 0 80 80" fill="none" stroke="#ff2e88" stroke-width="4"><circle cx="28" cy="52" r="11"/><line x1="39" y1="52" x2="39" y2="18"/><circle cx="56" cy="44" r="11"/><line x1="67" y1="44" x2="67" y2="14"/><line x1="39" y1="18" x2="67" y2="14" stroke="#12d3c7"/></svg></span>
+        <span class="rt"><h3>Kultur</h3><p>Goldene Zwanziger, Bowie in Schöneberg, Techno &amp; Berghain, Museumsinsel, Kabarett, Streetart.</p></span>
+        <span class="arrow">ANSEHEN ▸</span>
       </a>
 
-      <a class="postcard" href="politik.html">
-        <div class="pc-top">
-          <span class="stamp">1989</span>
-          <svg viewBox="0 0 120 100" fill="none" stroke="#2f8f5f" stroke-width="4">
-            <rect x="24" y="34" width="20" height="44" fill="#171c30"/>
-            <rect x="48" y="34" width="20" height="44" fill="#171c30"/>
-            <rect x="72" y="34" width="20" height="44" stroke="#e2402b"/>
-            <line x1="20" y1="34" x2="100" y2="34" stroke="#f0b429"/>
-          </svg>
-        </div>
-        <div class="pc-body">
-          <span class="pc-num">Karte 04</span>
-          <h3>Politik &amp; DDR</h3>
-          <p>Luftbrücke, Mauerbau, Geisterbahnhöfe, Ampelmännchen, Trabi — und die Nacht des 9. November.</p>
-          <span class="go">Ansehen ▸</span>
-        </div>
+      <a class="reg-row reveal" href="politik.html" style="--rc:#37c07a">
+        <span class="rn">04</span>
+        <span class="ri"><svg viewBox="0 0 80 80" fill="none" stroke="#37c07a" stroke-width="4"><rect x="16" y="26" width="14" height="34" fill="#0e0f16"/><rect x="33" y="26" width="14" height="34" fill="#0e0f16"/><rect x="50" y="26" width="14" height="34" stroke="#e63f2b"/><line x1="12" y1="26" x2="68" y2="26" stroke="#f0b429"/></svg></span>
+        <span class="rt"><h3>Politik &amp; DDR</h3><p>Luftbrücke, Mauerbau, Geisterbahnhöfe, Ampelmännchen, Trabi — und die Nacht des 9. November.</p></span>
+        <span class="arrow">ANSEHEN ▸</span>
       </a>
 
-      <a class="postcard" href="persoenlichkeiten.html">
-        <div class="pc-top">
-          <span class="stamp">★</span>
-          <svg viewBox="0 0 120 100" fill="none" stroke="#c87f1e" stroke-width="4">
-            <circle cx="60" cy="42" r="18"/>
-            <path d="M30 84 q30 -30 60 0" stroke="#3b7d9e"/>
-            <path d="M60 24 l4 9 10 1 -7 7 2 10 -9 -5 -9 5 2 -10 -7 -7 10 -1z" fill="#f0b429" stroke="none"/>
-          </svg>
-        </div>
-        <div class="pc-body">
-          <span class="pc-num">Karte 05</span>
-          <h3>Persönlichkeiten</h3>
-          <p>Marlene Dietrich, Käthe Kollwitz, Rosa Luxemburg, Einstein, Nina Hagen und der Bowie der Mauerjahre.</p>
-          <span class="go">Ansehen ▸</span>
-        </div>
+      <a class="reg-row reveal" href="persoenlichkeiten.html" style="--rc:#e8a020">
+        <span class="rn">05</span>
+        <span class="ri"><svg viewBox="0 0 80 80" fill="none" stroke="#e8a020" stroke-width="4"><circle cx="40" cy="30" r="13"/><path d="M18 62 q22 -22 44 0" stroke="#48b3d6"/><path d="M40 12 l3 7 8 1 -6 5 2 8 -7 -4 -7 4 2 -8 -6 -5 8 -1z" fill="#f0b429" stroke="none"/></svg></span>
+        <span class="rt"><h3>Persönlichkeiten</h3><p>Marlene Dietrich, Käthe Kollwitz, Rosa Luxemburg, Einstein, Nina Hagen und Bowies Mauerjahre.</p></span>
+        <span class="arrow">ANSEHEN ▸</span>
       </a>
 
-      <a class="postcard" href="queer.html">
-        <div class="pc-top">
-          <span class="stamp">CSD</span>
-          <svg viewBox="0 0 120 100" fill="none" stroke="#d94f86" stroke-width="4">
-            <path d="M20 78 A40 40 0 0 1 100 78" stroke="#d94f86"/>
-            <path d="M30 78 A30 30 0 0 1 90 78" stroke="#7a5fc0"/>
-            <path d="M40 78 A20 20 0 0 1 80 78" stroke="#f0b429"/>
-            <path d="M50 78 A10 10 0 0 1 70 78" stroke="#2fa15f"/>
-          </svg>
-        </div>
-        <div class="pc-body">
-          <span class="pc-num">Karte 06</span>
-          <h3>Queer &amp; Lesbisch</h3>
-          <p>Das queere Weimar-Berlin, Hirschfelds Institut, das Eldorado, lesbische Magazine und der Nollendorfplatz.</p>
-          <span class="go">Ansehen ▸</span>
-        </div>
+      <a class="reg-row reveal" href="queer.html" style="--rc:#ff3d9a">
+        <span class="rn">06</span>
+        <span class="ri"><svg viewBox="0 0 80 80" fill="none" stroke="#ff3d9a" stroke-width="4"><path d="M14 60 A26 26 0 0 1 66 60" stroke="#ff3d9a"/><path d="M22 60 A18 18 0 0 1 58 60" stroke="#8a5cff"/><path d="M30 60 A10 10 0 0 1 50 60" stroke="#f0b429"/></svg></span>
+        <span class="rt"><h3>Queer &amp; Lesbisch</h3><p>Das queere Weimar-Berlin, Hirschfelds Institut, das Eldorado, lesbische Magazine, der Nollendorfplatz.</p></span>
+        <span class="arrow">ANSEHEN ▸</span>
       </a>
-
     </div>
   </div>
 </section>
 
-<!-- BERLINERISCH -->
-<section class="dark">
+<!-- ================= BERLINERISCH ================= -->
+<section class="dark grain">
   <div class="wrap">
-    <p class="eyebrow">Kleiner Extra-Trick</p>
-    <h2>Berlinerisch für Angeber:innen</h2>
-    <p class="lead">Ein bisschen Dialekt streut man beim Date charmant ein. Tipp ein Wort an — es verrät, was es heißt.</p>
-    <div class="chips" id="chips"></div>
+    <p class="eyebrow reveal">Kleiner Extra-Trick</p>
+    <h2 class="reveal">Berlinerisch für Angeber:innen</h2>
+    <p class="lead reveal">Ein bisschen Dialekt streut man beim Date charmant ein. Tipp ein Wort an — es verrät, was es heißt.</p>
+    <div class="chips reveal" id="chips"></div>
     <p id="chip-out">Tipp oben ein Wort an …</p>
   </div>
 </section>
 
 <footer>
-  Berlin · Licht, Schatten &amp; Beton<br>
-  Sechs Seiten Stadtgeschichte — <a href="film.html">los geht's beim Film ▸</a>
+  <div class="wrap">
+    Berlin · Licht, Schatten &amp; Beton<br>
+    Sechs Welten Stadtgeschichte — <a href="film.html">los geht's beim Film ▸</a>
+  </div>
 </footer>
 
 <script>
   const SLANG=[
-    ['Schrippe','das klassische Weizenbrötchen — in Berlin heißt es nie „Semmel"'],
+    ['Schrippe','das klassische Weizenbrötchen — in Berlin nie „Semmel"'],
     ['Icke','„ich" — das berlinerischste Wort überhaupt: „Icke? Nee!"'],
     ['Pfannkuchen','der Berliner Krapfen. Wer „Berliner" sagt, ist von woanders'],
-    ['Bulette','die Frikadelle. Kommt vom französischen „boulette"'],
-    ['Late','„Leute" — im Berliner Dialekt gern verschluckt'],
-    ['jwd','„janz weit draußen" — irgendwo am Stadtrand, gefühlt am Ende der Welt'],
+    ['Bulette','die Frikadelle — vom französischen „boulette"'],
+    ['jwd','„janz weit draußen" — gefühlt am Ende der Welt'],
     ['Molle','ein Bier. „Ne Molle und ’n Korn" ist eine ganze Bestellung'],
     ['knorke','„richtig gut, super" — herrlich altberlinerisch'],
     ['Atze','Kumpel, Bruder — freundschaftliche Anrede'],
     ['dufte','„toll, klasse" — noch so ein Klassiker'],
+    ['Bölmann','Quatsch/Blödsinn — „mach kein Bölmann"'],
   ];
   const box=document.getElementById('chips'), out=document.getElementById('chip-out');
   SLANG.forEach(([w,def])=>{
     const b=document.createElement('button');
-    b.className='chip';b.type='button';
-    b.innerHTML='<span class="w">'+w+'</span>';
+    b.className='chip';b.type='button';b.innerHTML='<span class="w">'+w+'</span>';
     b.addEventListener('click',()=>{
       document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));
       b.classList.add('on');
@@ -200,6 +214,9 @@
     });
     box.appendChild(b);
   });
+  // Reveal on scroll
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%6*60)+'ms';io.observe(el)});
 </script>
 </body>
 </html>

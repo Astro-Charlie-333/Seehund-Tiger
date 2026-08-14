@@ -8,104 +8,109 @@
 </head>
 <body class="t-film">
 
-<nav class="topbar">
-  <div class="wrap">
-    <a class="brand" href="index.html"><span class="dot"></span>Berlin</a>
-    <div class="navlinks">
-      <a href="film.html" class="here">Film</a>
-      <a href="fotografie.html">Fotografie</a>
-      <a href="kultur.html">Kultur</a>
-      <a href="politik.html">Politik &amp; DDR</a>
-      <a href="persoenlichkeiten.html">Persönlichkeiten</a>
-      <a href="queer.html">Queer &amp; Lesbisch</a>
-    </div>
+<nav class="topbar"><div class="wrap">
+  <a class="brand" href="index.html"><span class="dot"></span>Berlin</a>
+  <div class="navlinks">
+    <a href="film.html" class="here">Film</a><a href="fotografie.html">Fotografie</a><a href="kultur.html">Kultur</a>
+    <a href="politik.html">Politik&nbsp;&amp;&nbsp;DDR</a><a href="persoenlichkeiten.html">Persönlichkeiten</a><a href="queer.html">Queer&nbsp;&amp;&nbsp;Lesbisch</a>
   </div>
-</nav>
+</div></nav>
+<div class="backrow"><div class="wrap"><a class="back" href="index.html">◂ zurück zum Register</a></div></div>
 
-<div class="wrap backrow"><a class="back" href="index.html">◂ zurück zur Postkarten-Wand</a></div>
-
-<header class="hero" style="background:var(--ink)">
+<header class="hero">
+  <svg class="hero-scene" viewBox="0 0 900 600" preserveAspectRatio="xMaxYMid slice"
+       style="right:0;top:0;height:100%;width:min(62%,760px);opacity:.92" aria-hidden="true">
+    <!-- Lichtkegel -->
+    <path d="M760 300 L250 120 L250 480 Z" fill="url(#beam)"/>
+    <defs><linearGradient id="beam" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0" stop-color="#f0b429" stop-opacity=".38"/>
+      <stop offset="1" stop-color="#f0b429" stop-opacity="0"/>
+    </linearGradient></defs>
+    <!-- schwebende Filmkader -->
+    <g fill="none" stroke="#ece6d8" stroke-width="3" class="drift">
+      <rect x="300" y="200" width="120" height="80" rx="4"/>
+      <line x1="300" y1="214" x2="420" y2="214"/><line x1="300" y1="266" x2="420" y2="266"/>
+      <rect x="360" y="320" width="120" height="80" rx="4" opacity=".7"/>
+      <line x1="360" y1="334" x2="480" y2="334" opacity=".7"/><line x1="360" y1="386" x2="480" y2="386" opacity=".7"/>
+    </g>
+    <!-- Projektor -->
+    <g fill="none" stroke="#e63f2b" stroke-width="4" stroke-linejoin="round">
+      <rect x="700" y="250" width="150" height="100" rx="8" fill="#181a26"/>
+      <circle cx="740" cy="230" r="34" class="spin-slow"/>
+      <circle cx="740" cy="230" r="10"/>
+      <circle cx="812" cy="245" r="24" class="spin-slow"/>
+      <path d="M700 300 h-30" stroke="#f0b429"/>
+      <rect x="690" y="290" width="14" height="20" fill="#0e0f16"/>
+    </g>
+  </svg>
   <div class="wrap">
     <p class="kicker">Karte 01 — Schatten</p>
     <h1>Film</h1>
     <p class="sub">Das Kino wurde nicht in Hollywood erwachsen, sondern in und um Berlin. Hier lief die erste kommerzielle Vorstellung der Welt — knapp vor Paris.</p>
   </div>
+  <p class="scroll-hint">▼ ab durch den Zeitstrahl</p>
 </header>
 
-<section>
+<div class="ticker" aria-hidden="true"><div class="track">
+  <span>1895 · Skladanowsky vor den Lumières</span><span>Babelsberg seit 1912</span><span>Metropolis 1927</span><span>Der blaue Engel 1930</span><span>Berlinale seit 1951</span>
+  <span>1895 · Skladanowsky vor den Lumières</span><span>Babelsberg seit 1912</span><span>Metropolis 1927</span><span>Der blaue Engel 1930</span><span>Berlinale seit 1951</span>
+</div></div>
+
+<section class="grain">
   <div class="wrap">
-    <p class="eyebrow">Der Zeitstrahl</p>
-    <h2>Berliner Filmgeschichte in Bildern</h2>
-    <p class="lead">Horizontal wischen — Bild für Bild durch 130 Jahre bewegtes Bild.</p>
-    <div class="strip" tabindex="0" aria-label="Zeitstrahl der Berliner Filmgeschichte">
-      <div class="frame hot"><span class="fl">01 · 1895</span><span class="year">1895</span><p>Die Skladanowsky-Brüder zeigen im Varieté „Wintergarten" mit ihrem „Bioscop" die <b>erste kommerzielle Filmvorführung der Welt</b> — knapp zwei Monate vor den Lumières in Paris.</p></div>
+    <div class="sec-head"><span class="motif"><svg viewBox="0 0 56 56" fill="none" stroke="#e63f2b" stroke-width="4"><circle cx="28" cy="28" r="22"/><circle cx="28" cy="28" r="6"/><circle cx="28" cy="10" r="4"/><circle cx="46" cy="28" r="4"/><circle cx="28" cy="46" r="4"/><circle cx="10" cy="28" r="4"/></svg></span>
+      <div><p class="eyebrow">Der Zeitstrahl</p><h2>130 Jahre bewegtes Bild</h2></div></div>
+    <p class="lead">Horizontal wischen — Bild für Bild durch die Berliner Filmgeschichte.</p>
+    <div class="strip-wrap"><div class="strip" tabindex="0" aria-label="Zeitstrahl Berliner Filmgeschichte">
+      <div class="frame hot"><span class="fl">01 · 1895</span><span class="year">1895</span><p>Die Skladanowsky-Brüder zeigen im „Wintergarten" mit ihrem „Bioscop" die <b>erste kommerzielle Filmvorführung der Welt</b> — Wochen vor den Lumières in Paris.</p></div>
       <div class="frame"><span class="fl">02 · 1912</span><span class="year">1912</span><p>In Babelsberg entsteht das älteste Großatelier-Filmstudio der Welt — älter als Hollywood.</p></div>
       <div class="frame hot"><span class="fl">03 · 1920</span><span class="year">1920</span><p>„Das Cabinet des Dr. Caligari" erfindet mit schiefen Kulissen die Bildsprache des Horrorfilms.</p></div>
-      <div class="frame hot"><span class="fl">04 · 1927</span><span class="year">1927</span><p>Fritz Langs „Metropolis" wird der teuerste Stummfilm seiner Zeit und prägt Science-Fiction bis heute.</p></div>
+      <div class="frame hot"><span class="fl">04 · 1927</span><span class="year">1927</span><p>Fritz Langs „Metropolis" wird der teuerste Stummfilm seiner Zeit und prägt SciFi bis heute.</p></div>
       <div class="frame"><span class="fl">05 · 1930</span><span class="year">1930</span><p>„Der blaue Engel" macht Marlene Dietrich über Nacht zum Weltstar.</p></div>
-      <div class="frame"><span class="fl">06 · 1933</span><span class="year">1933</span><p>Die Elite des deutschen Films flieht vor den Nazis: Lang, Wilder, Lorre — halb Hollywood ist danach Berliner Exil.</p></div>
+      <div class="frame"><span class="fl">06 · 1933</span><span class="year">1933</span><p>Die Film-Elite flieht vor den Nazis: Lang, Wilder, Lorre — halb Hollywood ist danach Berliner Exil.</p></div>
       <div class="frame hot"><span class="fl">07 · 1951</span><span class="year">1951</span><p>Die Berlinale wird als „Schaufenster der freien Welt" in West-Berlin gegründet.</p></div>
       <div class="frame"><span class="fl">08 · heute</span><span class="year">Jetzt</span><p>Babelsberg dreht weiter — von „Grand Budapest Hotel" bis „Matrix". Die Berlinale ist das größte Publikumsfestival der Welt.</p></div>
-    </div>
+    </div></div>
   </div>
 </section>
 
-<section class="dark">
+<section class="dark grain">
   <div class="wrap">
-    <p class="eyebrow">Sechs Szenen</p>
-    <h2>Was man erzählen kann</h2>
+    <p class="eyebrow">Sechs Szenen</p><h2>Was man erzählen kann</h2>
     <div class="grid2">
-      <div class="story"><span class="meta">1. November 1895</span><h3>Vor den Lumières</h3><p>Max und Emil Skladanowsky bauten sich ihren Projektor selbst und zeigten zahlendem Publikum bewegte Bilder — Wochen vor der berühmten Pariser Premiere. Der perfekte Angeber-Fakt: Kino kommt eigentlich aus Berlin.</p></div>
-      <div class="story"><span class="meta">seit 1912</span><h3>Babelsberg</h3><p>Vor den Toren der Stadt liegt das älteste noch produzierende Großstudio der Welt. Hier drehte Fritz Lang, hier stehen bis heute Kulissen für Hollywood-Blockbuster. Über 110 Jahre Filmgeschichte an einem Ort.</p></div>
-      <div class="story"><span class="meta">1920 &amp; 1927</span><h3>Expressionismus</h3><p>„Caligari" mit seinen gemalten, schiefen Wänden und „Metropolis" mit seiner Roboter-Zukunft haben das Weltkino geprägt — von Blade Runner bis Star Wars zitieren alle diese Berliner Bildsprache.</p></div>
-      <div class="story"><span class="meta">1927</span><h3>Die Stadt als Star</h3><p>Walther Ruttmanns „Berlin — Die Sinfonie der Großstadt" macht die Stadt selbst zur Hauptdarstellerin: ein Tag ohne Handlung, nur Rhythmus und Bewegung. Bis heute atemberaubend modern — und frei online zu sehen.</p></div>
-      <div class="story"><span class="meta">DEFA · 1946–1992</span><h3>Das andere Studio</h3><p>In der DDR produzierte die DEFA in Babelsberg — Märchenfilme, die bis heute jedes Weihnachten laufen, aber auch mutige Werke wie „Die Legende von Paul und Paula", ein Kultfilm des Ostens.</p></div>
-      <div class="story"><span class="meta">seit 1951</span><h3>Berlinale</h3><p>Mitten im Kalten Krieg als Fenster zur freien Welt gegründet, heute neben Cannes und Venedig eines der drei großen A-Festivals — und das größte für normales Publikum. Jedes Jahr gehen Hunderttausende Tickets an Berliner:innen.</p></div>
+      <div class="story"><span class="meta">1. November 1895</span><h3>Vor den Lumières</h3><p>Max und Emil Skladanowsky bauten ihren Projektor selbst und zeigten zahlendem Publikum bewegte Bilder — Wochen vor der Pariser Premiere. Der perfekte Angeber-Fakt: Kino kommt eigentlich aus Berlin.</p></div>
+      <div class="story"><span class="meta">seit 1912</span><h3>Babelsberg</h3><p>Vor den Toren der Stadt liegt das älteste noch produzierende Großstudio der Welt. Hier drehte Fritz Lang, hier stehen bis heute Kulissen für Hollywood-Blockbuster. Über 110 Jahre an einem Ort.</p></div>
+      <div class="story"><span class="meta">1920 &amp; 1927</span><h3>Expressionismus</h3><p>„Caligari" mit gemalten, schiefen Wänden und „Metropolis" mit seiner Roboter-Zukunft haben das Weltkino geprägt — von Blade Runner bis Star Wars zitieren alle diese Berliner Bildsprache.</p></div>
+      <div class="story"><span class="meta">1927</span><h3>Die Stadt als Star</h3><p>Walther Ruttmanns „Berlin — Die Sinfonie der Großstadt" macht die Stadt selbst zur Hauptdarstellerin: ein Tag ohne Handlung, nur Rhythmus und Bewegung. Bis heute modern — und frei online zu sehen.</p></div>
+      <div class="story"><span class="meta">DEFA · 1946–1992</span><h3>Das andere Studio</h3><p>In der DDR produzierte die DEFA in Babelsberg — Märchenfilme, die bis heute jedes Weihnachten laufen, aber auch Kultwerke wie „Die Legende von Paul und Paula".</p></div>
+      <div class="story"><span class="meta">seit 1951</span><h3>Berlinale</h3><p>Mitten im Kalten Krieg als Fenster zur freien Welt gegründet, heute neben Cannes und Venedig eines der drei großen A-Festivals — und das größte für normales Publikum.</p></div>
     </div>
   </div>
 </section>
 
-<section>
+<section class="grain">
   <div class="wrap">
-    <p class="eyebrow">Antippen zum Aufdecken</p>
-    <h2>Kleine Wahrheiten</h2>
+    <p class="eyebrow">Antippen zum Aufdecken</p><h2>Kleine Wahrheiten</h2>
     <div class="flips">
-      <button class="flip" type="button"><div class="flip-inner">
-        <div class="flip-face flip-front"><span class="q">Älter als Hollywood?</span><span class="hint">Umdrehen ▸</span></div>
-        <div class="flip-face flip-back"><p>Ja. Babelsberg produziert seit 1912 — Hollywood wurde erst danach zum Filmzentrum.</p><span class="hint">◂ zurück</span></div>
-      </div></button>
-      <button class="flip" type="button"><div class="flip-inner">
-        <div class="flip-face flip-front"><span class="q">Wer war zuerst dran, Berlin oder Paris?</span><span class="hint">Umdrehen ▸</span></div>
-        <div class="flip-face flip-back"><p>Berlin — am 1.11.1895, rund acht Wochen vor den Lumières.</p><span class="hint">◂ zurück</span></div>
-      </div></button>
-      <button class="flip" type="button"><div class="flip-inner">
-        <div class="flip-face flip-front"><span class="q">Welcher Film beeinflusst noch heute SciFi?</span><span class="hint">Umdrehen ▸</span></div>
-        <div class="flip-face flip-back"><p>„Metropolis" (1927). Sein Roboter „Maria" ist die Urmutter jedes Film-Androiden.</p><span class="hint">◂ zurück</span></div>
-      </div></button>
-      <button class="flip" type="button"><div class="flip-inner">
-        <div class="flip-face flip-front"><span class="q">Wo sieht man Stummfilm mit Live-Orgel?</span><span class="hint">Umdrehen ▸</span></div>
-        <div class="flip-face flip-back"><p>Im Kino „Babylon" am Rosa-Luxemburg-Platz — mit originaler Kinoorgel. Perfektes Date.</p><span class="hint">◂ zurück</span></div>
-      </div></button>
+      <button class="flip" type="button"><div class="flip-inner"><div class="flip-face flip-front"><span class="q">Älter als Hollywood?</span><span class="hint">Umdrehen ▸</span></div><div class="flip-face flip-back"><p>Ja. Babelsberg produziert seit 1912 — Hollywood wurde erst danach zum Filmzentrum.</p><span class="hint">◂ zurück</span></div></div></button>
+      <button class="flip" type="button"><div class="flip-inner"><div class="flip-face flip-front"><span class="q">Berlin oder Paris zuerst?</span><span class="hint">Umdrehen ▸</span></div><div class="flip-face flip-back"><p>Berlin — am 1.11.1895, rund acht Wochen vor den Lumières.</p><span class="hint">◂ zurück</span></div></div></button>
+      <button class="flip" type="button"><div class="flip-inner"><div class="flip-face flip-front"><span class="q">Welcher Film prägt noch heute SciFi?</span><span class="hint">Umdrehen ▸</span></div><div class="flip-face flip-back"><p>„Metropolis" (1927). Sein Roboter „Maria" ist die Urmutter jedes Film-Androiden.</p><span class="hint">◂ zurück</span></div></div></button>
+      <button class="flip" type="button"><div class="flip-inner"><div class="flip-face flip-front"><span class="q">Stummfilm mit Live-Orgel — wo?</span><span class="hint">Umdrehen ▸</span></div><div class="flip-face flip-back"><p>Im Kino „Babylon" am Rosa-Luxemburg-Platz — mit originaler Kinoorgel. Perfektes Date.</p><span class="hint">◂ zurück</span></div></div></button>
     </div>
-
-    <div class="links">
-      <p class="eyebrow">Weiterschauen</p>
-      <ul>
-        <li><span>Doku-Klassiker · 1927</span><a href="https://de.wikipedia.org/wiki/Berlin_%E2%80%93_Die_Sinfonie_der_Gro%C3%9Fstadt" target="_blank" rel="noopener">„Berlin — Die Sinfonie der Großstadt" (frei verfügbar)</a></li>
-        <li><span>Serie · Weimar-Berlin</span><a href="https://de.wikipedia.org/wiki/Babylon_Berlin" target="_blank" rel="noopener">„Babylon Berlin" — die 20er als perfekter Serienabend</a></li>
-        <li><span>Ausflug · Studio</span><a href="https://filmpark-babelsberg.de" target="_blank" rel="noopener">Filmpark Babelsberg — Filmgeschichte von innen</a></li>
-      </ul>
-    </div>
+    <div class="links"><p class="eyebrow">Weiterschauen</p><ul>
+      <li><span>Doku-Klassiker · 1927</span><a href="https://de.wikipedia.org/wiki/Berlin_%E2%80%93_Die_Sinfonie_der_Gro%C3%9Fstadt" target="_blank" rel="noopener">„Berlin — Die Sinfonie der Großstadt" (frei verfügbar)</a></li>
+      <li><span>Serie · Weimar-Berlin</span><a href="https://de.wikipedia.org/wiki/Babylon_Berlin" target="_blank" rel="noopener">„Babylon Berlin" — perfekter Serienabend</a></li>
+      <li><span>Ausflug · Studio</span><a href="https://filmpark-babelsberg.de" target="_blank" rel="noopener">Filmpark Babelsberg — Filmgeschichte von innen</a></li>
+    </ul></div>
   </div>
 </section>
 
-<footer>
-  Berlin · Film — Karte 01 von 06<br>
-  <a href="fotografie.html">weiter zur Fotografie ▸</a>
-</footer>
+<footer><div class="wrap">Berlin · Film — Karte 01 von 06<br><a href="fotografie.html">weiter zur Fotografie ▸</a></div></footer>
 
 <script>
   document.querySelectorAll('.flip').forEach(f=>f.addEventListener('click',()=>f.classList.toggle('open')));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('h2,.lead,.story,.flip,.quote,.links,.frame').forEach(el=>{el.classList.add('reveal');io.observe(el)});
 </script>
 </body>
 </html>
