@@ -1,17 +1,18 @@
-# Berlin — Licht, Schatten & Beton
+# Berlin — Stadt aus Licht und Schatten
 
-Eine mehrseitige, editoriale Website über Berlins Geschichte: Film, Fotografie,
-Kultur, Politik/DDR, Persönlichkeiten und queere/lesbische Geschichte.
+Mehrseitige Website über Berlins Geschichte im Kino-Look (Dunkelkammer-Rot,
+Kino-Dunkel ↔ Fotopapier-Hell). Räume: Film, Fotografie, Kultur, Politik/DDR,
+Menschen, Queer & Lesbisch.
 
 ## Dateien
-- `index.html` — Startseite (Register)
+- `index.html` — Startseite (Zeitstrahl, Register, Fakten, Quiz)
 - `film.html`, `fotografie.html`, `kultur.html`, `politik.html`,
-  `persoenlichkeiten.html`, `queer.html` — die sechs Themenräume
+  `persoenlichkeiten.html`, `queer.html` — die sechs Räume
 - `style.css` — gemeinsames Design
-- `app.js` — gemeinsame Interaktionen (Lightbox, Accordion, Einblendungen)
+- `app.js` — Aufdeck-Karten & Quiz
 
-**Wichtig:** Alle Dateien müssen zusammen im selben Ordner liegen
-(`style.css` und `app.js` neben den HTML-Dateien), sonst fehlen Design und Funktion.
+**Wichtig:** Alle Dateien zusammen im selben Ordner lassen (`style.css` und
+`app.js` neben den HTML-Dateien), sonst fehlen Design und Funktion.
 
 ## Auf GitHub veröffentlichen
 1. Neues, öffentliches Repository anlegen.
@@ -20,10 +21,5 @@ Kultur, Politik/DDR, Persönlichkeiten und queere/lesbische Geschichte.
 4. 2–3 Minuten warten; die Live-URL erscheint oben im Pages-Bereich.
 
 ## Echte Fotos einbauen (optional)
-Die Seite nutzt gezeichnete Tafeln (SVG), damit nichts kaputtgeht und keine
-Urheberrechte verletzt werden. Für echte historische Fotos: gemeinfreie Bilder
-bei **Wikimedia Commons** suchen (Lizenz „Public domain" oder „CC"), herunterladen,
-in den Ordner legen und mit `<img src="datei.jpg" alt="…">` einsetzen.
-
-## Schriften
-Fraunces, Space Grotesk, IBM Plex Mono (über Google Fonts geladen).
+Gemeinfreie Bilder bei Wikimedia Commons suchen (Lizenz „Public domain"/„CC"),
+herunterladen, in den Ordner legen und mit `<img src="datei.jpg" alt="…">` einsetzen.

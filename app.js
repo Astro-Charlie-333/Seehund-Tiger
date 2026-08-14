@@ -1,43 +1,37 @@
-/* Berlin — gemeinsame Interaktionen */
+/* Berlin — Aufdeck-Karten + Quiz */
 (function(){
-  // Reveal beim Scrollen
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
-  document.querySelectorAll('h2,.lead,.cell,.plate,.tl .t,.quote,.reads,.acc,.gloss,.index a,.intro').forEach(function(el){el.classList.add('reveal');io.observe(el);});
-
-  // Accordion
-  document.querySelectorAll('.acc .row > button').forEach(function(b){
-    b.addEventListener('click',function(){b.parentElement.classList.toggle('open');});
+  // Aufdeck-Karten
+  document.querySelectorAll('.card').forEach(function(c){
+    c.addEventListener('click',function(){c.classList.toggle('open');});
   });
 
-  // Lightbox
-  var lb=document.createElement('div');
-  lb.className='lightbox';
-  lb.innerHTML='<button class="lb-close" aria-label="Schließen">Schließen ✕</button><div class="lb-inner"><div class="lb-frame"></div><div class="lb-meta"><div><h3></h3><p></p></div></div></div>';
-  document.body.appendChild(lb);
-  var lbFrame=lb.querySelector('.lb-frame'), lbH=lb.querySelector('h3'), lbP=lb.querySelector('p');
-  function openLB(svg,title,note){lbFrame.innerHTML=svg;lbH.textContent=title||'';lbP.textContent=note||'';lb.classList.add('open');}
-  function closeLB(){lb.classList.remove('open');lbFrame.innerHTML='';}
-  document.querySelectorAll('.plate').forEach(function(p){
-    p.addEventListener('click',function(){
-      var svg=p.querySelector('.frame svg');
-      openLB(svg?svg.outerHTML:'',p.dataset.title,p.dataset.note);
-    });
-  });
-  lb.addEventListener('click',function(e){if(e.target===lb||e.target.classList.contains('lb-close'))closeLB();});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLB();});
-
-  // Glossar (nur Startseite)
-  if(window.GLOSS){
-    var wbox=document.querySelector('.gloss .words'), dbox=document.querySelector('.gloss .def');
-    window.GLOSS.forEach(function(g,i){
-      var b=document.createElement('button');b.className='gword';b.type='button';b.textContent=g[0];
-      b.addEventListener('click',function(){
-        document.querySelectorAll('.gword').forEach(function(x){x.classList.remove('on');});
-        b.classList.add('on');
-        dbox.innerHTML='<span class="w">'+g[0]+'</span><p>'+g[1]+'</p>';
+  // Quiz (aus window.QUIZ)
+  var box=document.getElementById('quizBox');
+  if(box && window.QUIZ){
+    var scoreEl=document.getElementById('score');
+    var answered=0, correct=0, total=window.QUIZ.length;
+    window.QUIZ.forEach(function(item,i){
+      var div=document.createElement('div');div.className='qq';
+      div.innerHTML='<span class="qnum">Frage '+(i+1)+' / '+total+'</span><h3>'+item.q+'</h3>';
+      var opts=document.createElement('div');opts.className='opts';
+      item.opts.forEach(function(o,j){
+        var b=document.createElement('button');b.type='button';b.textContent=o;
+        b.addEventListener('click',function(){
+          if(div.classList.contains('done'))return;
+          div.classList.add('done');answered++;
+          if(j===item.right){b.classList.add('right');correct++;}
+          else{b.classList.add('wrong');opts.children[item.right].classList.add('right');}
+          if(scoreEl){
+            var tail = answered===total ? (correct===total?' — perfekt.':' — solide Basis.') : '';
+            scoreEl.textContent='Stand: '+correct+' von '+answered+' richtig'+tail;
+          }
+        });
+        opts.appendChild(b);
       });
-      wbox.appendChild(b);
-      if(i===0){b.click();}
+      div.appendChild(opts);
+      var ex=document.createElement('p');ex.className='expl';ex.textContent=item.expl;
+      div.appendChild(ex);
+      box.appendChild(div);
     });
   }
 })();
